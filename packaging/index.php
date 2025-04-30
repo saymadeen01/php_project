@@ -49,14 +49,6 @@ if ($chartResult && $chartResult->num_rows > 0) {
     <a href="add-package.php" class="btn btn-success">➕ Add New Package</a>
   </div>
 
-  <!-- 📊 Chart Section -->
-  <div class="bg-white rounded shadow-sm p-4 mb-5">
-    <h5 class="text-center mb-4">📊 Package Type Distribution</h5>
-    <div class="chart-container">
-      <canvas id="packagePieChart"></canvas>
-    </div>
-  </div>
-
   <!-- 📋 Table Section -->
   <div class="table-responsive mb-5">
     <table class="table table-bordered table-striped table-hover shadow-sm">
@@ -94,6 +86,15 @@ if ($chartResult && $chartResult->num_rows > 0) {
       </tbody>
     </table>
   </div>
+
+  <!-- 📊 Chart Section (Moved Below Table) -->
+  <div class="bg-white rounded shadow-sm p-4 mb-5">
+    <h5 class="text-center mb-4">📊 Package Type Distribution</h5>
+    <div class="chart-container">
+      <canvas id="packagePieChart"></canvas>
+    </div>
+  </div>
+
 </div>
 
 <!-- Chart Script -->

@@ -16,7 +16,7 @@ while ($row = $statusResult->fetch_assoc()) {
     $counts[] = $row['total'];
 }
 
-// Prepare data for map (transport location markers)
+// Prepare data for map
 $locations = [];
 $locationQuery = $conn->query("SELECT id, vehicle, latitude, longitude, origin, destination FROM transport WHERE latitude IS NOT NULL AND longitude IS NOT NULL");
 
@@ -36,13 +36,14 @@ while ($row = $locationQuery->fetch_assoc()) {
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
-    #map {
-      height: 300px;
-      width: 100%;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+#map {
+  height: 250px;
+  width: 60%;
+  margin: 0 auto 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
     .chart-container {
       width: 100%;
       max-width: 480px;
@@ -56,20 +57,8 @@ while ($row = $locationQuery->fetch_assoc()) {
   <h2 class="mb-4">🚚 Transport Dashboard</h2>
   <a href="add-transport.php" class="btn btn-success mb-4">+ Add New Transport</a>
 
-  <!-- 📊 Transport Status Chart -->
-  <div class="chart-container bg-white p-4 rounded shadow-sm">
-    <h5 class="text-center mb-3">Transport Status Overview</h5>
-    <canvas id="statusChart"></canvas>
-  </div>
-
-  <!-- 🗺️ Transport Map -->
-  <div class="bg-white p-4 rounded shadow-sm mb-4">
-    <h5 class="text-center mb-3">Live Transport Map</h5>
-    <div id="map"></div>
-  </div>
-
   <!-- 📋 Transport Table -->
-  <table class="table table-bordered table-hover shadow-sm">
+  <table class="table table-bordered table-hover shadow-sm mb-5">
     <thead class="table-dark">
       <tr>
         <th>ID</th>
@@ -101,6 +90,18 @@ while ($row = $locationQuery->fetch_assoc()) {
       <?php endwhile; ?>
     </tbody>
   </table>
+
+  <!-- 🗺️ Transport Map -->
+  <div class="bg-white p-4 rounded shadow-sm mb-5">
+    <h5 class="text-center mb-3">Live Transport Map</h5>
+    <div id="map"></div>
+  </div>
+
+  <!-- 📊 Transport Status Chart -->
+  <div class="chart-container bg-white p-4 rounded shadow-sm">
+    <h5 class="text-center mb-3">Transport Status Overview</h5>
+    <canvas id="statusChart"></canvas>
+  </div>
 </div>
 
 <!-- Chart Script -->
@@ -131,7 +132,7 @@ while ($row = $locationQuery->fetch_assoc()) {
 
 <!-- Leaflet Map Script -->
 <script>
-  const map = L.map('map').setView([23.685, 90.3563], 6); // Center on Bangladesh
+  const map = L.map('map').setView([23.685, 90.3563], 6); // Bangladesh center
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'

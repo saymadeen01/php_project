@@ -1,7 +1,7 @@
 <?php
 // Database configuration
 $host = 'localhost';
-$dbname = 'grading_system';
+$dbname = 'grading-system';
 $username = 'root'; // change if needed
 $password = '';     // change if needed
 

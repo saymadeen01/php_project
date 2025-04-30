@@ -1,4 +1,3 @@
-<!-- includes/sidebar.php -->
 <style>
   .sidebar {
     width: 220px;
@@ -40,6 +39,10 @@
     </li>
     <li class="nav-item mb-2">
       <a class="nav-link text-white" href="/grading-system/transport/index.php">🚚 Transport</a>
+    </li>
+    <!-- Inspector Link Added -->
+    <li class="nav-item mb-2">
+      <a class="nav-link text-white" href="/grading-system/inspector/index.php">🕵️‍♂️ Inspectors</a>
     </li>
     <li class="nav-item mt-4">
       <a class="nav-link text-danger" href="/grading-system/auth/logout.php">🚪 Logout</a>

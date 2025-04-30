@@ -8,10 +8,16 @@ if (!isset($_SESSION['user_id'])) {
   exit;
 }
 
-// Example data — replace with database queries as needed
-$totalGrades = 42;
-$totalPackages = 15;
-$totalTransports = 8;
+// Fetch total grades, packages, transports, and inspectors from the database
+$queryGrades = "SELECT COUNT(*) as total FROM grades";
+$queryPackages = "SELECT COUNT(*) as total FROM packages";
+$queryTransports = "SELECT COUNT(*) as total FROM transport";
+$queryInspectors = "SELECT COUNT(*) as total FROM inspectors";
+
+$totalGrades = mysqli_fetch_assoc(mysqli_query($conn, $queryGrades))['total'];
+$totalPackages = mysqli_fetch_assoc(mysqli_query($conn, $queryPackages))['total'];
+$totalTransports = mysqli_fetch_assoc(mysqli_query($conn, $queryTransports))['total'];
+$totalInspectors = mysqli_fetch_assoc(mysqli_query($conn, $queryInspectors))['total'];
 ?>
 
 <!DOCTYPE html>
@@ -56,22 +62,28 @@ $totalTransports = 8;
   <h2 class="mb-4">📊 Dashboard Overview</h2>
 
   <div class="row g-4 mb-5">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card bg-primary text-white p-4 shadow-sm">
         <h5>Total Grades</h5>
         <h3><?= $totalGrades ?></h3>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card bg-success text-white p-4 shadow-sm">
         <h5>Total Packages</h5>
         <h3><?= $totalPackages ?></h3>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card bg-warning text-dark p-4 shadow-sm">
         <h5>Total Transports</h5>
         <h3><?= $totalTransports ?></h3>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-info text-white p-4 shadow-sm">
+        <h5>Total Inspectors</h5>
+        <h3><?= $totalInspectors ?></h3>
       </div>
     </div>
   </div>

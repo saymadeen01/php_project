@@ -110,6 +110,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <h2 class="text-center mb-5 fw-bold">Explore Modules</h2>
     <div class="row g-4 justify-content-center">
 
+      <!-- Grading Module -->
       <div class="col-md-4">
         <div class="card module-card p-4 text-center shadow-sm">
           <i class="bi bi-bar-chart-line-fill"></i>
@@ -119,6 +120,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
         </div>
       </div>
 
+      <!-- Packaging Module -->
       <div class="col-md-4">
         <div class="card module-card p-4 text-center shadow-sm">
           <i class="bi bi-box-seam"></i>
@@ -128,12 +130,23 @@ $isLoggedIn = isset($_SESSION['user_id']);
         </div>
       </div>
 
+      <!-- Transport Module -->
       <div class="col-md-4">
         <div class="card module-card p-4 text-center shadow-sm">
           <i class="bi bi-truck-front-fill"></i>
           <h4 class="mb-2">Transport</h4>
           <p>Track vehicle routes, deliveries, and transport data.</p>
           <a href='auth/login.php' class="btn btn-outline-info btn-sm mt-3">Access Transport</a>
+        </div>
+      </div>
+
+      <!-- Inspector Module -->
+      <div class="col-md-4">
+        <div class="card module-card p-4 text-center shadow-sm">
+          <i class="bi bi-person-check"></i>
+          <h4 class="mb-2">Inspectors</h4>
+          <p>Manage inspector records, inspections, and reports.</p>
+          <a href="inspector/index.php" class="btn btn-outline-warning btn-sm mt-3">Access Inspectors</a>
         </div>
       </div>
 

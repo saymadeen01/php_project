@@ -1,0 +1,35 @@
+grading-system/
+│
+├── assets/
+│   └── css/
+│       └── styles.css                  # Custom CSS for the project
+├── config/
+│   └── db.php                          # Database connection configuration
+├── auth/
+│   ├── login.php                       # User login page
+│   ├── register.php                    # User registration page
+│   └── logout.php                      # Logout functionality
+├── grading/
+│   ├── add-grade.php                   # Add new grade page
+│   ├── add-modal.php                   # Modal for adding new grade
+│   ├── delete.php                      # Delete a grade
+│   ├── edit.php                        # Edit an existing grade
+│   ├── index.php                       # Grades dashboard page
+│   └── view.php                        # View grade details
+├── packaging/
+│   ├── add-package.php                 # Add new package page
+│   ├── delete-package.php              # Delete a package
+│   ├── edit-package.php                # Edit package details
+│   ├── index.php                       # Packaging dashboard page
+│   └── view.php                        # View package details
+├── transport/
+│   ├── add-transport.php               # Add new transport page
+│   ├── delete-transport.php            # Delete transport
+│   ├── edit-transport.php              # Edit transport details
+│   ├── index.php                       # Transport dashboard page
+│   ├── map.php                         # Map view of transport locations
+│   ├── track.php                       # Track transport progress
+│   └── view-transport.php              # View transport details
+├── dashboard.php                       # Main dashboard for logged-in users
+├── index.php                           # Landing page
+└── setup.sql                           # SQL file to set up the database and initial data
